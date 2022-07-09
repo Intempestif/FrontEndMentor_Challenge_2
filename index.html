@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
-  <title>Frontend Mentor | Product preview card component</title>
+  <title>Frontend Mentor | Product preview card component | Intempestif</title>
 
   <!-- START STYLE GUIDE -->
   <!-- # Front-end Style Guide
@@ -46,7 +46,6 @@
     - Weights: 700 -->
   <!-- END STYLE GUIDE -->
   
-  <!-- The above code is preconnecting to the google fonts api and loading the fonts. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
@@ -54,49 +53,187 @@
     href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap"
     rel="stylesheet">
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-    /* utilise les commentaires entre START STYLE GUID & END STYLE GUIDE pour écrire le code de style ici */
-    /* commence par créer une classe pour chaque couleur en utilisant le nom donné */
     .dark-cyan { color: hsl(158, 36%, 37%); }
-    .cream { color: hsl(30, 38%, 92%); }
+    .cream { background-color: hsl(30, 38%, 92%); }
     .very-dark-blue { color: hsl(212, 21%, 14%); }
     .dark-grayish-blue { color: hsl(228, 12%, 48%); }
-    .white { color: hsl(0, 0%, 100%); }
+    .white { background-color: hsl(0, 0%, 100%); }
     .montserrat { font-family: 'Montserrat', sans-serif; }
     .fraunces { font-family: 'Fraunces', serif; }
-    /* oppuce toi des widths */
-    @media (max-width: 375px) {
-      .product-preview-card {
-        width: 100%;
+    
+    /* ==================== */
+    /* reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    /* ==================== */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      color: hsl(0, 0%, 0%);
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Fraunces', serif;
+      font-weight: 700;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100vw;
+    }
+    .card {
+      width: 700px;
+      height: 450px;
+      background-color: hsl(0, 0%, 100%);
+      border-radius: 10px;
+      box-shadow: 0px 0px 1px hsl(228, 12%, 48%);
+      display: flex;
+      flex-direction: row;
+    }
+    .image {
+      width: 50%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      background-image: url('./images/image-product-desktop.jpg');
+      background-size: cover;
+    }
+    .content {
+      width: 50%;
+      padding: 5%;
+    }
+    .content div {
+      width: 100%;
+      margin-bottom: 5%;
+    }
+    .category {
+      letter-spacing: 0.4rem;
+      width: 100%;
+      line-height: 1;
+    }
+    .title {
+      font-size: 2rem;
+      line-height: 1.2;
+      font-family: 'Fraunces', serif;
+    }
+    .prices {
+      font-family: 'Fraunces', serif;
+    }
+    .firstprice, .secondprice {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-bottom: 0% !important;
+    }
+    .firstprice {
+      color:hsl(158, 36%, 37%);
+    }
+    .secondprice {
+      color: hsl(228, 12%, 48%);
+      text-decoration: line-through;
+    }
+    .cart {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: hsl(158, 36%, 37%);
+      color: white;
+      height: 50px;
+      border-radius: 10px;
+    }
+
+    /* ==================== */
+    /* media queries */
+
+    @media (max-width: 700px) {
+      .card {
+        width: 90% !important;
+        height: 95% !important;
+        flex-direction: column !important;
+      }
+      .image {
+        width: 100% !important;
+        height: 40% !important;
+        background-image: url('./images/image-product-mobile.jpg') !important;
+      }
+      .content {
+        width: 100% !important;
+        height: 60% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+      }
+      .content div {
+        margin-bottom: 4% !important;
+      }
+      .content div .firstprice, .content div .secondprice {
+        margin-bottom: 0% !important;
       }
     }
-    @media (min-width: 1440px) {
-      .product-preview-card {
-        width: 1440px;
+    @media (max-width: 470px) {
+      .content div {
+        margin-bottom: 2% !important;
+      }
+    }
+    @media (max-width: 456px) {
+      .content div {
+        margin-bottom: 1% !important;
+      }
+    }
+    @media (max-width: 380px) {
+      .content div {
+        margin-bottom: 0.2% !important;
+      }
+    }
+    @media (max-width: 275px) {
+      body {
+        font-size: 12px !important;
+      }
+    }
+    @media (max-width: 265px) {
+      body {
+        font-size: 8px !important;
       }
     }
   </style>
 </head>
-<body>
+<body class="cream">
 
-  Preview
+  <div class="card white">
 
-  Gabrielle Essence Eau De Parfum
+    <div class="image">
 
-  A floral, solar and voluptuous interpretation composed by Olivier Polge, 
-  Perfumer-Creator for the House of CHANEL.
+    </div>
 
-  $149.99
-  $169.99
+    <div class="content">
 
-  Add to Cart
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+      <div class="category dark-grayish-blue">PERFUME</div>
+
+      <div class="title">Gabrielle<br>Essence Eau De Parfum</div>
+
+      <div>
+        A floral, solar and voluptuous interpretation composed by Olivier Polge, Perfumer-Creator for the House of CHANEL.
+      </div>
+
+      <div class="prices" style="display: flex;">
+        <div class="firstprice" style="width: 60%; font-size: 2rem">$149.99</div>
+        <div class="secondprice" style="width: 40%;">$169.99</div>
+      </div>
+      <div class="cart">
+        <img src="images/icon-cart.svg"> &nbsp; &nbsp;
+        Add to Cart
+      </div>
+
+    </div>
+
   </div>
 </body>
 </html>
