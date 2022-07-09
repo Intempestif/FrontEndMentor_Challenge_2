@@ -27,7 +27,7 @@ Users should be able to:
 
 ### Links
 
-- [Solution URL](https://your-solution-url.com)
+- [Solution URL](https://www.frontendmentor.io/solutions/product-preview-card-component-solution-simple-html-and-css-Tf1iSlPV-h)
 - [Live Site URL](https://intempestif.github.io/FrontEndMentor_Challenge_2/)
 
 ## My process
